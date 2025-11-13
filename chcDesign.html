@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CHC CRM Dashboard | Crop Residue Management</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1E40AF',   // Deep Blue
+            secondary: '#10B981', // Emerald Green
+            accent: '#F59E0B',    // Amber
+            muted: '#6B7280'
+          },
+          fontFamily: { sans: ['Inter', 'system-ui'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://rsms.me/inter/inter.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Heroicons -->
+  <script src="https://unpkg.com/heroicons@2.0.18/dist/heroicons.min.js"></script>
+</head>
+
+<body class="bg-gradient-to-br from-green-50 to-blue-50 text-gray-800 min-h-screen">
+
+<!-- HERO HEADER -->
+<header class="bg-gradient-to-r from-primary to-blue-700 text-white shadow-xl">
+  <div class="max-w-7xl mx-auto px-6 py-10 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-3">Custom Hiring Centres (CHC) Dashboard</h1>
+    <p class="text-lg md:text-xl opacity-90">Crop Residue Management & Feedstock Optimization | Sept 2025</p>
+    <a href="./ceew-custom-hiring-centres-for-web.pdf" download
+       class="mt-6 inline-block bg-white text-primary px-6 py-3 rounded-full font-semibold hover:bg-accent hover:text-white transition">
+      📥 Download Full CEEW Report (PDF)
+    </a>
+  </div>
+</header>
+
+<div class="max-w-7xl mx-auto px-6 py-12 space-y-16">
+
+<!-- OBJECTIVES -->
+<section class="bg-white rounded-2xl shadow-lg p-8">
+  <h2 class="text-2xl font-bold text-primary mb-6 flex items-center gap-2">
+    <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 003 14v2a1 1 0 001 1h12a1 1 0 001-1v-2a1 1 0 00-.293-.707l-.707-.707V8a6 6 0 00-6-6z"/></svg>
+    Key Objectives
+  </h2>
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="bg-green-50 p-5 rounded-xl border border-green-200">
+      <h3 class="font-semibold text-secondary">🌾 Improve CRM Practices</h3>
+      <p class="text-sm mt-1">Across Punjab, Haryana, UP</p>
+    </div>
+    <div class="bg-amber-50 p-5 rounded-xl border border-amber-200">
+      <h3 class="font-semibold text-accent">⚡ Feedstock for Biogas</h3>
+      <p class="text-sm mt-1">Enhance ex-situ supply chain</p>
+    </div>
+    <div class="bg-blue-50 p-5 rounded-xl border border-blue-200">
+      <h3 class="font-semibold text-primary">🔧 Optimize Machinery Use</h3>
+      <p class="text-sm mt-1">47% active → target 80%</p>
+    </div>
+    <div class="bg-purple-50 p-5 rounded-xl border border-purple-200">
+      <h3 class="font-semibold text-purple-700">🤝 Govt + Private Synergy</h3>
+      <p class="text-sm mt-1">Coordinate CHC networks</p>
+    </div>
+    <div class="bg-teal-50 p-5 rounded-xl border border-teal-200">
+      <h3 class="font-semibold text-teal-700">♻️ Sustainable Farming</h3>
+      <p class="text-sm mt-1">Zero stubble burning</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATE COMPARISON CARD -->
+<section class="bg-white rounded-2xl shadow-lg p-8">
+  <h2 class="text-2xl font-bold text-primary mb-6">State-wise CHC & CRM Snapshot</h2>
+  <div class="grid md:grid-cols-3 gap-6">
+    <!-- Punjab -->
+    <div class="bg-gradient-to-br from-orange-100 to-orange-50 p-6 rounded-xl border border-orange-200">
+      <h3 class="text-xl font-bold text-orange-700">Punjab</h3>
+      <p class="text-3xl font-extrabold text-orange-600 mt-2">40,581 CHCs</p>
+      <p class="text-lg font-medium">137,407 Machines</p>
+      <p class="text-sm text-orange-600 mt-2">Highest density | Innovation leader</p>
+    </div>
+    <!-- Haryana -->
+    <div class="bg-gradient-to-br from-emerald-100 to-emerald-50 p-6 rounded-xl border border-emerald-200">
+      <h3 class="text-xl font-bold text-emerald-700">Haryana</h3>
+      <p class="text-3xl font-extrabold text-emerald-600 mt-2">6,775 CHCs</p>
+      <p class="text-lg font-medium">89,770 Machines</p>
+      <p class="text-sm text-emerald-600 mt-2">Feedstock contracts | Outreach focus</p>
+    </div>
+    <!-- UP -->
+    <div class="bg-gradient-to-br from-indigo-100 to-indigo-50 p-6 rounded-xl border border-indigo-200">
+      <h3 class="text-xl font-bold text-indigo-700">Uttar Pradesh</h3>
+      <p class="text-3xl font-extrabold text-indigo-600 mt-2">8,389 CHCs</p>
+      <p class="text-lg font-medium">68,421 Machines</p>
+      <p class="text-sm text-indigo-600 mt-2">Large pool | Low deployment</p>
+    </div>
+  </div>
+</section>
+
+<!-- TAB NAVIGATION -->
+<nav class="flex justify-center mb-8">
+  <div class="bg-white rounded-2xl shadow-lg p-1 flex space-x-1 max-w-md mx-auto">
+    <button onclick="switchTab('punjab')" class="tab-button px-4 py-2 rounded-xl font-semibold text-primary bg-white shadow-md transition-all duration-200">Punjab</button>
+    <button onclick="switchTab('haryana')" class="tab-button px-4 py-2 rounded-xl font-semibold text-gray-500 bg-transparent transition-all duration-200">Haryana</button>
+    <button onclick="switchTab('up')" class="tab-button px-4 py-2 rounded-xl font-semibold text-gray-500 bg-transparent transition-all duration-200">Uttar Pradesh</button>
+  </div>
+</nav>
+
+<!-- TAB CONTENTS -->
+<div id="tab-contents">
+
+  <!-- PUNJAB TAB -->
+  <div id="punjab" class="tab-content space-y-8">
+    <!-- PUNJAB DEEP DIVE -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">Punjab: CHC & CRM Operation Dashboard</h2>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Stats -->
+        <div class="space-y-5">
+          <div class="bg-blue-50 p-5 rounded-xl">
+            <p class="text-sm text-muted">Total CHCs</p>
+            <p class="text-3xl font-bold text-primary">40,581</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Govt</p>
+              <p class="text-xl font-bold">25,417</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Private</p>
+              <p class="text-xl font-bold">6,775</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Farmer</p>
+              <p class="text-xl font-bold">8,389</p>
+            </div>
+          </div>
+          <div class="bg-red-50 p-5 rounded-xl border border-red-200">
+            <p class="text-sm">Total CRM Machines</p>
+            <p class="text-3xl font-bold text-red-600">137,407</p>
+            <p class="text-sm mt-2">⚠️ <strong>53%</strong> underutilized</p>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="space-y-6">
+          <canvas id="utilChartPunjab" height="120"></canvas>
+          <canvas id="machineChartPunjab" height="120"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHC TYPE BREAKDOWN -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">CHC Type & Ownership Breakdown</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="p-4">Type</th>
+              <th class="p-4">Count</th>
+              <th class="p-4">CRM Machines (%)</th>
+              <th class="p-4">Implements/CHC</th>
+              <th class="p-4">Utilization</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Government</td>
+              <td class="p-4">25,417</td>
+              <td class="p-4">~45%</td>
+              <td class="p-4">5–20</td>
+              <td class="p-4 text-red-600">Higher underuse</td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Private</td>
+              <td class="p-4">6,775</td>
+              <td class="p-4">~30%</td>
+              <td class="p-4">2–15</td>
+              <td class="p-4 text-green-600">Profit-focused</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 font-medium">Indiv. Farmer</td>
+              <td class="p-4">8,389</td>
+              <td class="p-4">~25%</td>
+              <td class="p-4">1–5</td>
+              <td class="p-4 text-amber-600">Niche & growing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MACHINE INVENTORY PIE -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">CRM Machine Inventory by Type</h2>
+      <div class="max-w-md mx-auto">
+        <canvas id="inventoryPiePunjab"></canvas>
+      </div>
+    </section>
+  </div>
+
+  <!-- HARYANA TAB -->
+  <div id="haryana" class="tab-content hidden space-y-8">
+    <!-- HARYANA DEEP DIVE -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">Haryana: CHC & CRM State Coordination Dashboard</h2>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Stats -->
+        <div class="space-y-5">
+          <div class="bg-blue-50 p-5 rounded-xl">
+            <p class="text-sm text-muted">Total CHCs</p>
+            <p class="text-3xl font-bold text-primary">6,775</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Govt (~45%)</p>
+              <p class="text-xl font-bold">~3,049</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Private (~30%)</p>
+              <p class="text-xl font-bold">~2,033</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Farmer (~25%)</p>
+              <p class="text-xl font-bold">~1,693</p>
+            </div>
+          </div>
+          <div class="bg-red-50 p-5 rounded-xl border border-red-200">
+            <p class="text-sm">Total CRM Machines</p>
+            <p class="text-3xl font-bold text-red-600">89,770</p>
+            <p class="text-sm mt-2">⚠️ >50% underutilized (general trend)</p>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="space-y-6">
+          <canvas id="utilChartHaryana" height="120"></canvas>
+          <canvas id="machineChartHaryana" height="120"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHC TYPE BREAKDOWN -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">Ownership Split</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="p-4">Type</th>
+              <th class="p-4">Share (%)</th>
+              <th class="p-4">Key Notes</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Government</td>
+              <td class="p-4">~45%</td>
+              <td class="p-4">Wider reach for in-situ management</td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Private</td>
+              <td class="p-4">~30%</td>
+              <td class="p-4">Packaged services, higher profits</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 font-medium">Indiv. Farmer</td>
+              <td class="p-4">~25%</td>
+              <td class="p-4">Niche operations, ex-situ focus</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MACHINE INVENTORY PIE -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">CRM Machine Inventory by Type (State General)</h2>
+      <div class="max-w-md mx-auto">
+        <canvas id="inventoryPieHaryana"></canvas>
+      </div>
+    </section>
+
+    <!-- COMPARISON TABLE -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">Comparison with Neighbor States</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="p-4">State</th>
+              <th class="p-4">CHCs</th>
+              <th class="p-4">CRM Machines</th>
+              <th class="p-4">Key Notes</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Haryana</td>
+              <td class="p-4">6,775</td>
+              <td class="p-4">89,770</td>
+              <td class="p-4">Use for local feedstock contracts/outreach</td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Punjab</td>
+              <td class="p-4">40,581</td>
+              <td class="p-4">137,407</td>
+              <td class="p-4">Highest density, innovation models</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 font-medium">Uttar Pradesh</td>
+              <td class="p-4">8,389</td>
+              <td class="p-4">68,421</td>
+              <td class="p-4">Large pool, but lower deployment rate</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- UP TAB -->
+  <div id="up" class="tab-content hidden space-y-8">
+    <!-- UP DEEP DIVE -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">Uttar Pradesh: CHC Key Metrics Dashboard</h2>
+      <div class="grid lg:grid-cols-2 gap-8">
+        <!-- Stats -->
+        <div class="space-y-5">
+          <div class="bg-blue-50 p-5 rounded-xl">
+            <p class="text-sm text-muted">Total CHCs</p>
+            <p class="text-3xl font-bold text-primary">8,389</p>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Govt (~45%)</p>
+              <p class="text-xl font-bold">~3,775</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Private (~30%)</p>
+              <p class="text-xl font-bold">~2,517</p>
+            </div>
+            <div class="bg-gray-100 p-4 rounded-lg">
+              <p class="text-xs text-muted">Farmer (~25%)</p>
+              <p class="text-xl font-bold">~2,097</p>
+            </div>
+          </div>
+          <div class="bg-red-50 p-5 rounded-xl border border-red-200">
+            <p class="text-sm">Total CRM Machines</p>
+            <p class="text-3xl font-bold text-red-600">68,421</p>
+            <p class="text-sm mt-2">⚠️ >50% underutilized (general trend)</p>
+          </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="space-y-6">
+          <canvas id="utilChartUP" height="120"></canvas>
+          <canvas id="machineChartUP" height="120"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- OVERVIEW METRICS TABLE -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">Overview Metrics</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="bg-primary text-white">
+              <th class="p-4">Metric</th>
+              <th class="p-4">Value</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Total CHCs</td>
+              <td class="p-4">8,389</td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Total CRM Machines</td>
+              <td class="p-4">68,421</td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Govt CHC (%)</td>
+              <td class="p-4">~45%</td>
+            </tr>
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-4 font-medium">Private CHC (%)</td>
+              <td class="p-4">~30%</td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="p-4 font-medium">Indiv. Farmer CHC (%)</td>
+              <td class="p-4">~25%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MACHINE INVENTORY PIE -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">CRM Machine Inventory by Type (State General)</h2>
+      <div class="max-w-md mx-auto">
+        <canvas id="inventoryPieUP"></canvas>
+      </div>
+    </section>
+
+    <!-- KEY INSIGHTS -->
+    <section class="bg-white rounded-2xl shadow-lg p-8">
+      <h2 class="text-2xl font-bold text-primary mb-6">Key Insights</h2>
+      <ul class="space-y-4 text-gray-700">
+        <li class="flex items-start gap-3"><span class="text-2xl">✅</span> Government CHCs serve more farmers and greater acreage for in-situ management</li>
+        <li class="flex items-start gap-3"><span class="text-2xl">💼</span> Private CHCs offer more packaged services; government mainly machine-only rentals</li>
+        <li class="flex items-start gap-3"><span class="text-2xl">💰</span> Ex-situ/baling contracts yield highest profits</li>
+        <li class="flex items-start gap-3"><span class="text-2xl">📱</span> Low adoption of digital rental apps; traditional communication preferred</li>
+      </ul>
+    </section>
+  </div>
+
+</div>
+
+<!-- INSIGHTS GRID (General) -->
+<section class="bg-gradient-to-r from-secondary/10 to-primary/10 rounded-2xl p-8">
+  <h2 class="text-2xl font-bold text-primary mb-8 text-center">Strategic Insights & Recommendations</h2>
+  <div class="grid md:grid-cols-2 gap-6 text-sm">
+    <div class="bg-white p-5 rounded-xl shadow">
+      <h3 class="font-bold text-secondary mb-2">🎯 Target Underutilized CHCs</h3>
+      <p>53% machines idle → Partner with private & farmer CHCs for bundled contracts.</p>
+    </div>
+    <div class="bg-white p-5 rounded-xl shadow">
+      <h3 class="font-bold text-accent mb-2">📦 Packaged > Machine-Only</h3>
+      <p>Full-service bundles = 3x profit per acre vs rental-only.</p>
+    </div>
+    <div class="bg-white p-5 rounded-xl shadow">
+      <h3 class="font-bold text-primary mb-2">📱 Digitize Bookings</h3>
+      <p>Only <1% use i-Khet/Unnat Kisan → Build WhatsApp + SMS gateway.</p>
+    </div>
+    <div class="bg-white p-5 rounded-xl shadow">
+      <h3 class="font-bold text-purple-700 mb-2">🔧 Maintenance & Training</h3>
+      <p>High labor costs → Certify operators + predictive maintenance IoT.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MUST-KNOWS -->
+<section class="bg-primary text-white rounded-2xl p-8">
+  <h2 class="text-2xl font-bold mb-6">CHC Must-Knows</h2>
+  <ul class="space-y-4 text-lg">
+    <li class="flex items-start gap-3"><span class="text-2xl">✅</span> Democratize access for small farmers</li>
+    <li class="flex items-start gap-3"><span class="text-2xl">✅</span> Govt CHCs → wider reach; Private → higher margins</li>
+    <li class="flex items-start gap-3"><span class="text-2xl">⚠️</span> 53% machines underused → huge supply potential</li>
+    <li class="flex items-start gap-3"><span class="text-2xl">💰</span> Ex-situ baling = highest ROI</li>
+    <li class="flex items-start gap-3"><span class="text-2xl">📲</span> Digitization gap → opportunity for startups</li>
+  </ul>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-8 text-muted text-sm">
+  <p>Source: <strong>CEEW Report, Sept 2025</strong> | Dashboard by <a href="https://github.com/manoj7019" class="underline">Manoj Kumar</a></p>
+</footer>
+
+</div>
+
+<!-- CHART.JS SCRIPTS -->
+<script>
+  // Tab Switching Function
+  function switchTab(state) {
+    // Hide all tab contents
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.add('hidden'));
+    // Remove active from all buttons
+    const buttons = document.querySelectorAll('.tab-button');
+    buttons.forEach(btn => {
+      btn.classList.remove('bg-white', 'text-primary', 'shadow-md');
+      btn.classList.add('bg-transparent', 'text-gray-500');
+    });
+    // Show selected tab
+    document.getElementById(state).classList.remove('hidden');
+    // Activate button
+    event.target.classList.add('bg-white', 'text-primary', 'shadow-md');
+    event.target.classList.remove('bg-transparent', 'text-gray-500');
+    // Re-render charts for the tab
+    setTimeout(() => {
+      if (state === 'punjab') {
+        renderPunjabCharts();
+      } else if (state === 'haryana') {
+        renderHaryanaCharts();
+      } else if (state === 'up') {
+        renderUPCharts();
+      }
+    }, 100);
+  }
+
+  // Punjab Charts
+  function renderPunjabCharts() {
+    // Utilization Donut
+    new Chart(document.getElementById('utilChartPunjab'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Active (47%)', 'Underutilized (53%)'],
+        datasets: [{
+          data: [47, 53],
+          backgroundColor: ['#10B981', '#EF4444'],
+          borderWidth: 2,
+          borderColor: '#fff'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Machine Utilization', font: { size: 16 } } }
+      }
+    });
+
+    // Machine Type Bar
+    new Chart(document.getElementById('machineChartPunjab'), {
+      type: 'bar',
+      data: {
+        labels: ['Super Seeder', 'Happy Seeder', 'Rotavator', 'Chopper/Mulcher', 'Others'],
+        datasets: [{
+          label: 'Share of Stock (%)',
+          data: [30, 10, 15, 15, 30],
+          backgroundColor: '#1E40AF'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false }, title: { display: true, text: 'Machine Types in Stock', font: { size: 16 } } },
+        scales: { y: { beginAtZero: true, max: 40 } }
+      }
+    });
+
+    // Inventory Pie
+    new Chart(document.getElementById('inventoryPiePunjab'), {
+      type: 'pie',
+      data: {
+        labels: ['Super Seeder (30%)', 'Happy Seeder (10%)', 'Rotavator (15%)', 'Chopper/Mulcher (15%)', 'Others (30%)'],
+        datasets: [{
+          data: [30, 10, 15, 15, 30],
+          backgroundColor: ['#F59E0B', '#10B981', '#3B82F6', '#8B5CF6', '#6B7280']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'right' } }
+      }
+    });
+  }
+
+  // Haryana Charts (Mirroring Punjab for general data)
+  function renderHaryanaCharts() {
+    // Utilization Donut (General trend)
+    new Chart(document.getElementById('utilChartHaryana'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Active (~47%)', 'Underutilized (>50%)'],
+        datasets: [{
+          data: [47, 53],
+          backgroundColor: ['#10B981', '#EF4444'],
+          borderWidth: 2,
+          borderColor: '#fff'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Machine Utilization (General)', font: { size: 16 } } }
+      }
+    });
+
+    // Machine Type Bar (General)
+    new Chart(document.getElementById('machineChartHaryana'), {
+      type: 'bar',
+      data: {
+        labels: ['Super Seeder', 'Happy Seeder', 'Rotavator', 'Chopper/Mulcher', 'Others'],
+        datasets: [{
+          label: 'Share of Stock (%)',
+          data: [30, 10, 15, 15, 30],
+          backgroundColor: '#1E40AF'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false }, title: { display: true, text: 'Machine Types in Stock (General)', font: { size: 16 } } },
+        scales: { y: { beginAtZero: true, max: 40 } }
+      }
+    });
+
+    // Inventory Pie (General)
+    new Chart(document.getElementById('inventoryPieHaryana'), {
+      type: 'pie',
+      data: {
+        labels: ['Super Seeder (30%)', 'Happy Seeder (10%)', 'Rotavator (15%)', 'Chopper/Mulcher (15%)', 'Others (30%)'],
+        datasets: [{
+          data: [30, 10, 15, 15, 30],
+          backgroundColor: ['#F59E0B', '#10B981', '#3B82F6', '#8B5CF6', '#6B7280']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'right' } }
+      }
+    });
+  }
+
+  // UP Charts (Mirroring Punjab for general data)
+  function renderUPCharts() {
+    // Utilization Donut (General trend)
+    new Chart(document.getElementById('utilChartUP'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Active (~47%)', 'Underutilized (>50%)'],
+        datasets: [{
+          data: [47, 53],
+          backgroundColor: ['#10B981', '#EF4444'],
+          borderWidth: 2,
+          borderColor: '#fff'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Machine Utilization (General)', font: { size: 16 } } }
+      }
+    });
+
+    // Machine Type Bar (General)
+    new Chart(document.getElementById('machineChartUP'), {
+      type: 'bar',
+      data: {
+        labels: ['Super Seeder', 'Happy Seeder', 'Rotavator', 'Chopper/Mulcher', 'Others'],
+        datasets: [{
+          label: 'Share of Stock (%)',
+          data: [30, 10, 15, 15, 30],
+          backgroundColor: '#1E40AF'
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false }, title: { display: true, text: 'Machine Types in Stock (General)', font: { size: 16 } } },
+        scales: { y: { beginAtZero: true, max: 40 } }
+      }
+    });
+
+    // Inventory Pie (General)
+    new Chart(document.getElementById('inventoryPieUP'), {
+      type: 'pie',
+      data: {
+        labels: ['Super Seeder (30%)', 'Happy Seeder (10%)', 'Rotavator (15%)', 'Chopper/Mulcher (15%)', 'Others (30%)'],
+        datasets: [{
+          data: [30, 10, 15, 15, 30],
+          backgroundColor: ['#F59E0B', '#10B981', '#3B82F6', '#8B5CF6', '#6B7280']
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'right' } }
+      }
+    });
+  }
+
+  // Initialize Punjab tab on load
+  document.addEventListener('DOMContentLoaded', function() {
+    renderPunjabCharts();
+  });
+</script>
+
+</body>
+</html>
