@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHCs - Feedstock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>Custom Hiring Centres(CHC) Data for Crop Residue Management(CRM)/Feedstock Management</h1>
+    
+    <!-- <div class="welcome-section">
+        <h2>Welcome to the Crop Residue Management Dashboard</h2>
+        <p>This platform provides comprehensive data and insights on Custom Hiring Centres (CHCs) across key agricultural states in India. Our focus is on improving crop residue management (CRM) practices to support sustainable agriculture and enhance feedstock sourcing for the biogas sector.</p>
+        
+        <div class="key-points">
+            <div class="point-card">
+                <h3>State-wise Data</h3>
+                <p>Access detailed information about CHCs, machinery inventory, and utilization patterns in Punjab, Haryana, and Uttar Pradesh.</p>
+            </div>
+            <div class="point-card">
+                <h3>Performance Metrics</h3>
+                <p>Compare key metrics across different CHC types, ownership models, and service approaches.</p>
+            </div>
+            <div class="point-card">
+                <h3>Visual Analytics</h3>
+                <p>Explore interactive charts and visualizations that highlight trends, challenges, and opportunities in CRM.</p>
+            </div>
+            <div class="point-card">
+                <h3>Strategic Insights</h3>
+                <p>Gain actionable insights to optimize feedstock sourcing strategies and improve CHC coordination.</p>
+            </div>
+        </div>
+    </div> -->
+    
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="overview">Overview</button>
+            <button class="tab-button" data-tab="punjab">Punjab CHCs</button>
+            <button class="tab-button" data-tab="haryana">Haryana CHCs</button>
+            <button class="tab-button" data-tab="up">UP CHCs</button>
+            <button class="tab-button" data-tab="charts">All Charts</button>
+            <!-- <button class="tab-button" data-tab="numbers">Punjab Numbers</button> -->
+        </div>
+        
+        <div id="overview" class="tab-content active">
+            <!-- <h2>Project Overview</h2> -->
+            <p>This dashboard provides comprehensive data on Custom Hiring Centres (CHCs) across key agricultural states in India, focusing on crop residue management (CRM) machinery and practices.</p>
+            
+            <div class="infographic">
+                <h3>Key Objectives:</h3>
+                <ul>
+                    <li>Improve crop residue management practices across agricultural regions</li>
+                    <li>Enhance feedstock sourcing for biogas production</li>
+                    <li>Optimize utilization of CRM machinery in CHCs</li>
+                    <li>Facilitate coordination between government and private CHCs</li>
+                    <li>Promote sustainable agricultural practices</li>
+                </ul>
+            </div>
+            
+            <h3>State Comparison</h3>
+            <table>
+                <tr>
+                    <th>State</th>
+                    <th>Total CHCs</th>
+                    <th>CRM Machines</th>
+                    <th>Key Characteristics</th>
+                </tr>
+                <tr>
+                    <td>Punjab</td>
+                    <td>40,581</td>
+                    <td>137,407</td>
+                    <td>Highest density, innovation models</td>
+                </tr>
+                <tr>
+                    <td>Haryana</td>
+                    <td>6,775</td>
+                    <td>89,770</td>
+                    <td>Use for local feedstock contracts/outreach</td>
+                </tr>
+                <tr>
+                    <td>Uttar Pradesh</td>
+                    <td>8,389</td>
+                    <td>68,421</td>
+                    <td>Large pool, but lower deployment rate</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="punjab" class="tab-content">
+            <h2>Punjab CHC & CRM Machinery – Operation Dashboard</h2>
+            
+            <div class="metrics">
+                <div class="metric-box">
+                    <strong>Total CHCs (Punjab):</strong><br>
+                    40,581
+                </div>
+                <div class="metric-box">
+                    <strong>Govt CHCs:</strong><br>
+                    25,417
+                </div>
+                <div class="metric-box">
+                    <strong>Private CHCs:</strong><br>
+                    6,775
+                </div>
+                <div class="metric-box">
+                    <strong>Individual Farmer CHCs:</strong><br>
+                    8,389
+                </div>
+            </div>
+            
+            <div class="metrics">
+                <div class="metric-box">
+                    <strong>Total CRM Machines:</strong><br>
+                    137,407
+                </div>
+                <div class="metric-box">
+                    <strong>Active/Used Machines (%):</strong><br>
+                    47%
+                </div>
+                <div class="metric-box">
+                    <strong>Underutilized/Unused (%):</strong><br>
+                    53%
+                </div>
+            </div>
+
+            <h3>CHC Type & Ownership Breakdown</h3>
+            <table>
+                <tr>
+                    <th>CHC Type</th>
+                    <th>Count</th>
+                    <th>CRM Machines Owned (%)</th>
+                    <th>Typical Implements/CHC</th>
+                    <th>Utilization Trend</th>
+                </tr>
+                <tr>
+                    <td>Government</td>
+                    <td>25,417</td>
+                    <td>~45%</td>
+                    <td>5–20</td>
+                    <td>Wider reach; higher underutilization</td>
+                </tr>
+                <tr>
+                    <td>Private</td>
+                    <td>6,775</td>
+                    <td>~30%</td>
+                    <td>2–15</td>
+                    <td>Higher profitability, focused use</td>
+                </tr>
+                <tr>
+                    <td>Indiv. Farmer</td>
+                    <td>8,389</td>
+                    <td>~25%</td>
+                    <td>1–5</td>
+                    <td>Entrepreneurial, niche</td>
+                </tr>
+            </table>
+
+            <h3>CRM Machine Inventory by Type</h3>
+            <table>
+                <tr>
+                    <th>Type</th>
+                    <th>Share of Stock (%)</th>
+                </tr>
+                <tr>
+                    <td>Super Seeder</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Happy Seeder</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Rotavator</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Chopper/Shredder/Mulcher</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Other Implements</td>
+                    <td>30</td>
+                </tr>
+            </table>
+
+            <h3>Utilization Charts</h3>
+            <div class="chart-container">
+                <div class="chart-item">
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/19e82a0566a3f537aeb8685c8b413fdd/8a9e3f2c-a825-486b-8251-6f6068d60fbb/2c5673b4.png" alt="Machine Usage" width="380"/>
+                    <div class="chart-caption">Machine Usage: 47% actively used, 53% underutilized/unused</div>
+                </div>
+                <div class="chart-item">
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/19e82a0566a3f537aeb8685c8b413fdd/41dd537e-4226-4e07-b892-44deda9ba6d3/2c5673b4.png" alt="Machine Types" width="420"/>
+                    <div class="chart-caption">Share of main machine types in CHC stock</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="haryana" class="tab-content">
+            <h2>Haryana CHC & CRM Machinery – State Coordination Dashboard</h2>
+            
+            <div class="metrics">
+                <div class="metric-box">
+                    <strong>Total CHCs (Haryana):</strong><br>
+                    6,775
+                </div>
+                <div class="metric-box">
+                    <strong>Total CRM Machines:</strong><br>
+                    89,770
+                </div>
+                <div class="metric-box">
+                    <strong>Ownership Split:</strong><br>
+                    Govt ~45%<br>Private ~30%<br>Indiv. ~25%
+                </div>
+            </div>
+            
+            <h3>Comparison with Neighbor States</h3>
+            <table>
+                <tr>
+                    <th>State</th>
+                    <th>CHCs</th>
+                    <th>CRM Machines</th>
+                    <th>Key Notes</th>
+                </tr>
+                <tr>
+                    <td>Haryana</td>
+                    <td>6,775</td>
+                    <td>89,770</td>
+                    <td>Use for local feedstock contracts/outreach</td>
+                </tr>
+                <tr>
+                    <td>Punjab</td>
+                    <td>25,417</td>
+                    <td>137,407</td>
+                    <td>Highest density, innovation models</td>
+                </tr>
+                <tr>
+                    <td>Uttar Pradesh</td>
+                    <td>8,389</td>
+                    <td>68,421</td>
+                    <td>Large pool, but lower deployment rate</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div id="up" class="tab-content">
+            <h2>Custom Hiring Centres (CHCs) – Key Metrics for Uttar Pradesh</h2>
+            
+            <h3>Uttar Pradesh Overview Metrics</h3>
+            <table>
+                <tr>
+                    <th>Total CHCs</th>
+                    <th>Total CRM Machines</th>
+                    <th>Govt CHC (%)</th>
+                    <th>Private CHC (%)</th>
+                    <th>Indiv. Farmer CHC (%)</th>
+                </tr>
+                <tr>
+                    <td>8,389</td>
+                    <td>68,421</td>
+                    <td>~45%</td>
+                    <td>~30%</td>
+                    <td>~25%</td>
+                </tr>
+            </table>
+            
+            <div class="infographic">
+                <h3>Key Insights for Uttar Pradesh:</h3>
+                <ul>
+                    <li>Government CHCs likely serve more farmers and greater acreage for in-situ management</li>
+                    <li>Private CHCs offer more packaged services while government CHCs mainly provide machine-only rentals</li>
+                    <li>Ex-situ/baling contracts yield highest profits</li>
+                    <li>Adoption of digital rental apps is very low, with traditional communication still preferred</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div id="charts" class="tab-content">
+            <h2>CHC Metrics & Charts – Crop Residue Management</h2>
+            
+            <div class="chart-container">
+                <div class="chart-item">
+                    <h3>Area and Farmer Reach per CHC Type (In-situ)</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/2541a96a604290ebfc99c93031de53b0/ee99682d-edee-4ffe-86e6-ec06f0d42ea0/2c5673b4.png" alt="Area/Farmer Reach by CHC Type" width="525"/>
+                    <div class="chart-caption">Government CHCs serve more farmers and greater acreage for in-situ management than private CHCs.</div>
+                </div>
+                
+                <div class="chart-item">
+                    <h3>Share of Packaged Service vs Machine-only by CHC Type</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/2541a96a604290ebfc99c93031de53b0/bf552049-c831-4c97-83a9-8b5a7fb7ed17/2c5673b4.png" alt="Packaged vs Machine-Only Service" width="460"/>
+                    <div class="chart-caption">Private CHCs offer more packaged services; government CHCs mostly offer machine-only rental.</div>
+                </div>
+                
+                <div class="chart-item">
+                    <h3>Profit per Acre by CHC Service Model</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/2541a96a604290ebfc99c93031de53b0/73cb17f2-4dfa-40f5-a67b-f979c94e3e53/2c5673b4.png" alt="Profit per Acre Models" width="500"/>
+                    <div class="chart-caption">Ex-situ/baling contracts offer the highest rents; full service package is much more profitable than machine-only.</div>
+                </div>
+                
+                <div class="chart-item">
+                    <h3>Median Investment by CHC Type and Service</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/2541a96a604290ebfc99c93031de53b0/83794c78-7022-4a8a-9321-341d856ef4a3/2c5673b4.png" alt="Median Investment by CHC" width="515"/>
+                    <div class="chart-caption">Ex-situ service (baling) requires much higher upfront investment than in-situ rental services.</div>
+                </div>
+                
+                <div class="chart-item">
+                    <h3>CHC Digital Platform Awareness and Adoption</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/2541a96a604290ebfc99c93031de53b0/e8249c2e-5e30-4b36-a71e-ed77b077b10d/2c5673b4.png" alt="CHC Digital Platform Awareness" width="430"/>
+                    <div class="chart-caption">Adoption of government rental apps (i-Khet, Unnat Kisan) is very low among CHCs—most rely on traditional communication.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="numbers" class="tab-content">
+            <h2>CRM Machine Inventory & Usage in Punjab CHCs</h2>
+            
+            <div class="chart-container">
+                <div class="chart-item">
+                    <h3>Number of CHCs by Type and Ownership (Punjab, 2023)</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/19e82a0566a3f537aeb8685c8b413fdd/f246ded6-a6b3-4559-96d0-c24cffb0ce81/8f0d6a59.png" alt="Number of CHCs by Ownership" width="490"/>
+                    <div class="chart-caption">Government CHCs dominate in number, with large contributions from private entities and individual farmers.</div>
+                </div>
+                
+                <div class="chart-item">
+                    <h3>Share of Used vs Unused CRM Machines in CHCs</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/19e82a0566a3f537aeb8685c8b413fdd/8a9e3f2c-a825-486b-8251-6f6068d60fbb/2c5673b4.png" alt="Used vs Unused CRM Machines" width="410"/>
+                    <div class="chart-caption">Over half of all CRM machines in Punjab's CHCs are underutilized or unused, limiting their impact.</div>
+                </div>
+                
+                <div class="chart-item">
+                    <h3>Types of CRM Machines in Punjab CHCs (By Share of Stock)</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/19e82a0566a3f537aeb8685c8b413fdd/41dd537e-4226-4e07-b892-44deda9ba6d3/2c5673b4.png" alt="CRM Machine Type Shares" width="450"/>
+                    <div class="chart-caption">Super Seeders form the largest share of CRM machines, but there is significant stock in Happy Seeders, Rotavators, Choppers, and other types.</div>
+                </div>
+            </div>
+            
+            <div class="infographic">
+                <h3>Notes and Further Data</h3>
+                <ul>
+                    <li>Punjab's CRM machine stock is split among government-run, private, and individual farmer-managed CHCs.</li>
+                    <li>Machine underutilization is higher among government CHCs, with obsolete types (e.g., Happy Seeders) especially affected.</li>
+                    <li>Best practices recommend inventory management, decommissioning plans, and targeted upgrades for optimal use.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button and corresponding content
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
